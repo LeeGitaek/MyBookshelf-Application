@@ -56,10 +56,7 @@ class ViewController: UIViewController ,UITextFieldDelegate {
             self.tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
             self.tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
             
-        } else {
-            // Fallback on earlier versions
-            
-        }
+        } 
     }
     @objc func textFieldDidChange(_ textField: UITextField) {
           Parser.shared.ReadableBookStoreApiHandler(QueryStr: self.searchQuery.text!, Page: 1)
@@ -105,9 +102,10 @@ extension ViewController : UITableViewDataSource,UITableViewDelegate {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: mainCell.Identifier, for: indexPath) as! mainCell
 
         
-       
-        let listObj = Parser.shared.bookShelf[indexPath.row]
-        cell.configure(elements: listObj)
+        if Parser.shared.bookShelf.count != 0{
+            let listObj = Parser.shared.bookShelf[indexPath.row]
+            cell.configure(elements: listObj)
+        }
         
         return cell
     }
