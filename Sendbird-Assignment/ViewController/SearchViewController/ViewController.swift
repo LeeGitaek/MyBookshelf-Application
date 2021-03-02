@@ -88,6 +88,7 @@ extension ViewController : UITableViewDataSource,UITableViewDelegate {
         self.tableView.register(UINib(nibName: "mainCell", bundle: nil), forCellReuseIdentifier: mainCell.Identifier)
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.keyboardDismissMode = .onDrag
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -123,8 +124,6 @@ extension ViewController : UITableViewDataSource,UITableViewDelegate {
         if Parser.shared.bookShelf.count != 0{
             let listObj = Parser.shared.bookShelf[indexPath.row]
             cell.configure(elements: listObj)
-            
-            
         }
     
         return cell

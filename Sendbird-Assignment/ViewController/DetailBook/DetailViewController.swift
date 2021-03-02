@@ -24,7 +24,8 @@ class DetailViewController: UIViewController {
     let detailPrice = UILabel()
     let detailImage = UIImageView()
     let detailURL = UITextView()
-    
+    let alert = UIAlertController(title: "error", message: "detail data error", preferredStyle: .alert)
+
     //MARK:- View Load
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,17 @@ class DetailViewController: UIViewController {
                     self?.detailDesc.text = "Description : \(book!.DetailDesc!)"
                     self?.detailAuthors.text = "Author : \(book!.DetailAuthors!)"
                     self?.detailPublisher.text = "Publisher : \(book!.DetailPublisher!)"
+                }
+                
+                if err != nil {
+                    let action = UIAlertAction(title: "ok", style: .default, handler: { [weak self] _ in
+                        guard (self?.alert) != nil else {
+                            return
+                        }
+                    })
+
+                    self?.alert.addAction(action)
+                    self?.present(self!.alert, animated: true, completion: nil)
                 }
                         
             })
