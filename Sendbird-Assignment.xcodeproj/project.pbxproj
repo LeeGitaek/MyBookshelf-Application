@@ -10,12 +10,17 @@
 		F9A9A76025E6BDBD00FE654C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A9A75F25E6BDBD00FE654C /* AppDelegate.swift */; };
 		F9A9A76225E6BDBD00FE654C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A9A76125E6BDBD00FE654C /* SceneDelegate.swift */; };
 		F9A9A76425E6BDBD00FE654C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A9A76325E6BDBD00FE654C /* ViewController.swift */; };
-		F9A9A76725E6BDBD00FE654C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A9A76525E6BDBD00FE654C /* Main.storyboard */; };
 		F9A9A76A25E6BDBD00FE654C /* Sendbird_Assignment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9A9A76825E6BDBD00FE654C /* Sendbird_Assignment.xcdatamodeld */; };
 		F9A9A76C25E6BDC300FE654C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9A9A76B25E6BDC300FE654C /* Assets.xcassets */; };
 		F9A9A76F25E6BDC300FE654C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9A9A76D25E6BDC300FE654C /* LaunchScreen.storyboard */; };
 		F9A9A77A25E6BDC400FE654C /* Sendbird_AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A9A77925E6BDC400FE654C /* Sendbird_AssignmentTests.swift */; };
 		F9A9A78525E6BDC400FE654C /* Sendbird_AssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A9A78425E6BDC400FE654C /* Sendbird_AssignmentUITests.swift */; };
+		F9A9A7A325E6C1ED00FE654C /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A9A7A225E6C1ED00FE654C /* Book.swift */; };
+		F9A9A7EE25E7D80600FE654C /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A9A7ED25E7D80600FE654C /* Parser.swift */; };
+		F9A9A7F825E7D9BD00FE654C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A9A7F725E7D9BD00FE654C /* DetailViewController.swift */; };
+		F9A9A7FF25E7F2CE00FE654C /* mainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A9A7FD25E7F2CE00FE654C /* mainCell.swift */; };
+		F9A9A80025E7F2CE00FE654C /* mainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9A9A7FE25E7F2CE00FE654C /* mainCell.xib */; };
+		F9A9A81A25E90FD100FE654C /* DetailBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A9A81925E90FD100FE654C /* DetailBook.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +45,6 @@
 		F9A9A75F25E6BDBD00FE654C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9A9A76125E6BDBD00FE654C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F9A9A76325E6BDBD00FE654C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F9A9A76625E6BDBD00FE654C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9A9A76925E6BDBD00FE654C /* Sendbird_Assignment.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sendbird_Assignment.xcdatamodel; sourceTree = "<group>"; };
 		F9A9A76B25E6BDC300FE654C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9A9A76E25E6BDC300FE654C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +55,12 @@
 		F9A9A78025E6BDC400FE654C /* Sendbird-AssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sendbird-AssignmentUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A9A78425E6BDC400FE654C /* Sendbird_AssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sendbird_AssignmentUITests.swift; sourceTree = "<group>"; };
 		F9A9A78625E6BDC400FE654C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9A9A7A225E6C1ED00FE654C /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		F9A9A7ED25E7D80600FE654C /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		F9A9A7F725E7D9BD00FE654C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F9A9A7FD25E7F2CE00FE654C /* mainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainCell.swift; sourceTree = "<group>"; };
+		F9A9A7FE25E7F2CE00FE654C /* mainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = mainCell.xib; sourceTree = "<group>"; };
+		F9A9A81925E90FD100FE654C /* DetailBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBook.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +111,11 @@
 		F9A9A75E25E6BDBD00FE654C /* Sendbird-Assignment */ = {
 			isa = PBXGroup;
 			children = (
-				F9A9A75F25E6BDBD00FE654C /* AppDelegate.swift */,
-				F9A9A76125E6BDBD00FE654C /* SceneDelegate.swift */,
-				F9A9A76325E6BDBD00FE654C /* ViewController.swift */,
-				F9A9A76525E6BDBD00FE654C /* Main.storyboard */,
+				F9A9A7FC25E7F29D00FE654C /* Cell */,
+				F9A9A7EC25E7D7E800FE654C /* Parser */,
+				F9A9A7A125E6C1D700FE654C /* BookModel */,
+				F9A9A7AB25E6C20B00FE654C /* ViewController */,
+				F9A9A7AA25E6C1FE00FE654C /* Delegate */,
 				F9A9A76B25E6BDC300FE654C /* Assets.xcassets */,
 				F9A9A76D25E6BDC300FE654C /* LaunchScreen.storyboard */,
 				F9A9A77025E6BDC300FE654C /* Info.plist */,
@@ -129,6 +140,66 @@
 				F9A9A78625E6BDC400FE654C /* Info.plist */,
 			);
 			path = "Sendbird-AssignmentUITests";
+			sourceTree = "<group>";
+		};
+		F9A9A7A125E6C1D700FE654C /* BookModel */ = {
+			isa = PBXGroup;
+			children = (
+				F9A9A7A225E6C1ED00FE654C /* Book.swift */,
+				F9A9A81925E90FD100FE654C /* DetailBook.swift */,
+			);
+			path = BookModel;
+			sourceTree = "<group>";
+		};
+		F9A9A7AA25E6C1FE00FE654C /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				F9A9A76125E6BDBD00FE654C /* SceneDelegate.swift */,
+				F9A9A75F25E6BDBD00FE654C /* AppDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		F9A9A7AB25E6C20B00FE654C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F9A9A7F625E7D99B00FE654C /* SearchViewController */,
+				F9A9A7F525E7D96E00FE654C /* DetailBook */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F9A9A7EC25E7D7E800FE654C /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				F9A9A7ED25E7D80600FE654C /* Parser.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		F9A9A7F525E7D96E00FE654C /* DetailBook */ = {
+			isa = PBXGroup;
+			children = (
+				F9A9A7F725E7D9BD00FE654C /* DetailViewController.swift */,
+			);
+			path = DetailBook;
+			sourceTree = "<group>";
+		};
+		F9A9A7F625E7D99B00FE654C /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F9A9A76325E6BDBD00FE654C /* ViewController.swift */,
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		F9A9A7FC25E7F29D00FE654C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F9A9A7FD25E7F2CE00FE654C /* mainCell.swift */,
+				F9A9A7FE25E7F2CE00FE654C /* mainCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,9 +305,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9A9A80025E7F2CE00FE654C /* mainCell.xib in Resources */,
 				F9A9A76F25E6BDC300FE654C /* LaunchScreen.storyboard in Resources */,
 				F9A9A76C25E6BDC300FE654C /* Assets.xcassets in Resources */,
-				F9A9A76725E6BDBD00FE654C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,8 +334,13 @@
 			files = (
 				F9A9A76425E6BDBD00FE654C /* ViewController.swift in Sources */,
 				F9A9A76025E6BDBD00FE654C /* AppDelegate.swift in Sources */,
+				F9A9A7EE25E7D80600FE654C /* Parser.swift in Sources */,
 				F9A9A76A25E6BDBD00FE654C /* Sendbird_Assignment.xcdatamodeld in Sources */,
+				F9A9A81A25E90FD100FE654C /* DetailBook.swift in Sources */,
+				F9A9A7A325E6C1ED00FE654C /* Book.swift in Sources */,
 				F9A9A76225E6BDBD00FE654C /* SceneDelegate.swift in Sources */,
+				F9A9A7FF25E7F2CE00FE654C /* mainCell.swift in Sources */,
+				F9A9A7F825E7D9BD00FE654C /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,14 +376,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F9A9A76525E6BDBD00FE654C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F9A9A76625E6BDBD00FE654C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F9A9A76D25E6BDC300FE654C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -443,6 +511,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QFBB64MH66;
 				INFOPLIST_FILE = "Sendbird-Assignment/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,6 +531,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QFBB64MH66;
 				INFOPLIST_FILE = "Sendbird-Assignment/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
