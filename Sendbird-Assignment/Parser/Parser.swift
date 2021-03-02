@@ -8,7 +8,7 @@
 import Foundation
 
 protocol BookApiProtocolHandler {
-    func ReadableBookStoreApiHandler(QueryStr:String,Page:Int)
+    func ReadableBookStoreApiHandler(QueryStr:String,Page:Int,completionHandler: @escaping (Bool?, Error?) -> Void)
     func DetailDataApiHandler(isbnData:String,completionHandler: @escaping (DetailBook?, Error?) -> Void)
 }
 
@@ -29,7 +29,7 @@ class Parser: BookApiProtocolHandler {
     
     //MARK:- Http request api handler
     
-    func ReadableBookStoreApiHandler(QueryStr:String,Page:Int){
+    func ReadableBookStoreApiHandler(QueryStr:String,Page:Int,completionHandler: @escaping (Bool?, Error?) -> Void){
         
         let bookUrl = "https://api.itbook.store/1.0/search/\(QueryStr)/\(Page)"
         let encoded = bookUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
@@ -43,9 +43,13 @@ class Parser: BookApiProtocolHandler {
                 let bookList = try JSONDecoder().decode(BookList.self, from: data)
                 if bookList.BookItems?.count != 0 {
                     self.bookShelf.append(contentsOf:bookList.BookItems!)
+                    
                 }
+                completionHandler(true,nil)
+       
             } catch let error{
                 self.errorMessage(error.localizedDescription)
+                completionHandler(false,error)
             }
         }.resume()
     }

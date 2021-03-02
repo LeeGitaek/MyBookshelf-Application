@@ -13,6 +13,9 @@ class ViewController: UIViewController ,UITextFieldDelegate {
     let searchQuery = UITextField()
     let tableView = UITableView()
     let noDataLabel = UILabel()
+    let alert = UIAlertController(title: "에러", message: "데이터 불러오는데 에러 발생", preferredStyle: .alert)
+    let existAlert = UIAlertController(title: "알림", message: "book 데이터가 더이상 존재하지 않습니다.", preferredStyle: .alert)
+
     
     //MARK:-Variables
     var nextCounter:Int = 1
@@ -22,6 +25,8 @@ class ViewController: UIViewController ,UITextFieldDelegate {
         super.viewDidLoad()
         tableViewSetup()
         self.makeUI()
+        
+        
     }
     
     func makeUI(){
@@ -63,16 +68,46 @@ class ViewController: UIViewController ,UITextFieldDelegate {
     @objc func textFieldDidChange(_ textField: UITextField) {
           self.nextCounter = 1
           Parser.shared.bookShelf.removeAll()
-          Parser.shared.ReadableBookStoreApiHandler(QueryStr: self.searchQuery.text!, Page: self.nextCounter)
-          Parser.shared.reloadList = { [weak self] ()  in
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                }
-          }
+            DispatchQueue.main.async {
+                  Parser.shared.ReadableBookStoreApiHandler(QueryStr: self.searchQuery.text!, Page: self.nextCounter, completionHandler: { [weak self] (isSucess,err) in
+                            let action = UIAlertAction(title: "ok", style: .default, handler: { [weak self] _ in
+                                guard (self?.alert) != nil else {
+                                    return
+                                }
+                            })
+    
+                            if isSucess == false  {
+                                    
+                                self?.alert.addAction(action)
+                                self?.present(self!.alert, animated: true, completion: nil)
+                            }
+                  })
+            }
+                
+              Parser.shared.reloadList = { [weak self] ()  in
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
+              }
+      
     }
     
     private func nextGetData(page:Int){
-        Parser.shared.ReadableBookStoreApiHandler(QueryStr: self.searchQuery.text!, Page: page)
+        
+        DispatchQueue.main.async {
+            Parser.shared.ReadableBookStoreApiHandler(QueryStr: self.searchQuery.text!, Page: page, completionHandler: { [weak self] (isSucess,err) in
+                let action = UIAlertAction(title: "ok", style: .default, handler: { [weak self] _ in
+                    guard (self?.alert) != nil else {
+                        return
+                    }
+                })
+
+                if isSucess == false {
+                    self?.alert.addAction(action)
+                    self?.present(self!.alert, animated: true, completion: nil)
+                }
+            })
+        }
         Parser.shared.reloadList = { [weak self] ()  in
               DispatchQueue.main.async {
                   self?.tableView.reloadData()

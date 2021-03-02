@@ -24,7 +24,7 @@ class DetailViewController: UIViewController {
     let detailPrice = UILabel()
     let detailImage = UIImageView()
     let detailURL = UITextView()
-    let alert = UIAlertController(title: "error", message: "detail data error", preferredStyle: .alert)
+    let alert = UIAlertController(title: "에러", message: "세부정보 데이터 에러", preferredStyle: .alert)
 
     //MARK:- View Load
     override func viewDidLoad() {
