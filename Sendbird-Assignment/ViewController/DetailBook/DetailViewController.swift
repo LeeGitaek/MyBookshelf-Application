@@ -54,8 +54,6 @@ class DetailViewController: UIViewController {
         self.detailURL.text = selectData.BookUrl!
         self.detailPrice.text = selectData.Price!
         self.detailImage.loadImageWithURL(URL(string:selectData.BookImage!)!)
-
-       
     }
     
     func makeUI(){

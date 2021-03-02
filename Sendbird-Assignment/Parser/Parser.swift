@@ -41,7 +41,9 @@ class Parser: BookApiProtocolHandler {
             guard let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode == 200 else { return }
             do {
                 let bookList = try JSONDecoder().decode(BookList.self, from: data)
-                self.bookShelf = bookList.BookItems!
+                if bookList.BookItems?.count != 0 {
+                    self.bookShelf.append(contentsOf:bookList.BookItems!)
+                }
             } catch let error{
                 self.errorMessage(error.localizedDescription)
             }

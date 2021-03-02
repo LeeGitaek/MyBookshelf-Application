@@ -14,6 +14,9 @@ class ViewController: UIViewController ,UITextFieldDelegate {
     let tableView = UITableView()
     let noDataLabel = UILabel()
     
+    //MARK:-Variables
+    var nextCounter:Int = 1
+    
     //MARK:- View Load
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +31,6 @@ class ViewController: UIViewController ,UITextFieldDelegate {
         self.navigationController?.navigationBar.topItem?.title = "Search"
         
         /* Textfield UI Implementation code  */
-   
         self.searchQuery.backgroundColor = .white
         self.searchQuery.textAlignment = .left
         self.searchQuery.placeholder = "Search"
@@ -38,7 +40,7 @@ class ViewController: UIViewController ,UITextFieldDelegate {
         self.view.addSubview(searchQuery)
         
         self.searchQuery.addTarget(self, action: #selector(ViewController.textFieldDidChange(_:)),for: .editingChanged)
-                /* Tableview UI Implementation code  */
+        /* Tableview UI Implementation code  */
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.tableView)
         
@@ -50,7 +52,7 @@ class ViewController: UIViewController ,UITextFieldDelegate {
             self.searchQuery.widthAnchor.constraint(equalToConstant:330).isActive = true
             self.searchQuery.heightAnchor.constraint(equalToConstant: 50).isActive = true
             
-            self.tableView.topAnchor.constraint(equalTo: self.searchQuery.bottomAnchor).isActive = true
+            self.tableView.topAnchor.constraint(equalTo: self.searchQuery.bottomAnchor,constant: 10).isActive = true
             self.tableView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
             self.tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
             self.tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
@@ -59,12 +61,23 @@ class ViewController: UIViewController ,UITextFieldDelegate {
         } 
     }
     @objc func textFieldDidChange(_ textField: UITextField) {
-          Parser.shared.ReadableBookStoreApiHandler(QueryStr: self.searchQuery.text!, Page: 1)
+          self.nextCounter = 1
+          Parser.shared.bookShelf.removeAll()
+          Parser.shared.ReadableBookStoreApiHandler(QueryStr: self.searchQuery.text!, Page: self.nextCounter)
           Parser.shared.reloadList = { [weak self] ()  in
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
           }
+    }
+    
+    private func nextGetData(page:Int){
+        Parser.shared.ReadableBookStoreApiHandler(QueryStr: self.searchQuery.text!, Page: page)
+        Parser.shared.reloadList = { [weak self] ()  in
+              DispatchQueue.main.async {
+                  self?.tableView.reloadData()
+              }
+        }
     }
 }
 
@@ -101,12 +114,19 @@ extension ViewController : UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: mainCell.Identifier, for: indexPath) as! mainCell
 
+        if indexPath.row == Parser.shared.bookShelf.count-1 {
+            self.nextCounter += 1
+            self.nextGetData(page:self.nextCounter)
+        }
+        
         
         if Parser.shared.bookShelf.count != 0{
             let listObj = Parser.shared.bookShelf[indexPath.row]
             cell.configure(elements: listObj)
+            
+            
         }
-        
+    
         return cell
     }
     
