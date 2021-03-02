@@ -14,9 +14,9 @@ class ViewController: UIViewController ,UITextFieldDelegate {
     let tableView = UITableView()
     let noDataLabel = UILabel()
     let alert = UIAlertController(title: "에러", message: "데이터 불러오는데 에러 발생", preferredStyle: .alert)
-    let existAlert = UIAlertController(title: "알림", message: "book 데이터가 더이상 존재하지 않습니다.", preferredStyle: .alert)
+ 
 
-    
+    var action = UIAlertAction(title: "ok", style: .default, handler: nil)
     //MARK:-Variables
     var nextCounter:Int = 1
     
@@ -30,6 +30,8 @@ class ViewController: UIViewController ,UITextFieldDelegate {
     }
     
     func makeUI(){
+        
+        
         
         /* Navigationbar and View UI Implementation code */
         self.view.backgroundColor = .white
@@ -63,22 +65,21 @@ class ViewController: UIViewController ,UITextFieldDelegate {
             self.tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
             self.tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
             
-        } 
+        }
+        
+        self.action = UIAlertAction(title: "ok", style: .default, handler: { [weak self] _ in
+            guard (self?.alert) != nil else {
+                return
+            }
+        })
     }
     @objc func textFieldDidChange(_ textField: UITextField) {
           self.nextCounter = 1
           Parser.shared.bookShelf.removeAll()
             DispatchQueue.main.async {
                   Parser.shared.ReadableBookStoreApiHandler(QueryStr: self.searchQuery.text!, Page: self.nextCounter, completionHandler: { [weak self] (isSucess,err) in
-                            let action = UIAlertAction(title: "ok", style: .default, handler: { [weak self] _ in
-                                guard (self?.alert) != nil else {
-                                    return
-                                }
-                            })
-    
-                            if isSucess == false  {
-                                    
-                                self?.alert.addAction(action)
+                            if err != nil {
+                                self?.alert.addAction(self!.action)
                                 self?.present(self!.alert, animated: true, completion: nil)
                             }
                   })
@@ -96,14 +97,8 @@ class ViewController: UIViewController ,UITextFieldDelegate {
         
         DispatchQueue.main.async {
             Parser.shared.ReadableBookStoreApiHandler(QueryStr: self.searchQuery.text!, Page: page, completionHandler: { [weak self] (isSucess,err) in
-                let action = UIAlertAction(title: "ok", style: .default, handler: { [weak self] _ in
-                    guard (self?.alert) != nil else {
-                        return
-                    }
-                })
-
-                if isSucess == false {
-                    self?.alert.addAction(action)
+                if err != nil {
+                    self?.alert.addAction(self!.action)
                     self?.present(self!.alert, animated: true, completion: nil)
                 }
             })

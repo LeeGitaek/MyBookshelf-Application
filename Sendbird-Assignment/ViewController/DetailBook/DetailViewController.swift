@@ -118,11 +118,13 @@ class DetailViewController: UIViewController {
             txt.translatesAutoresizingMaskIntoConstraints = false
             if ind == 0 {
                 txt.dataDetectorTypes = .link
+                txt.isScrollEnabled = false 
             }
             self.view.addSubview(txt)
             if #available(iOS 11.0, *) {
                 if ind == 0 {
                     txt.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant:450).isActive = true
+                    
                 } else if ind == 1 {
                     txt.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant:475).isActive = true
                 }

@@ -38,7 +38,8 @@ class Parser: BookApiProtocolHandler {
         request.httpMethod = "GET"
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else { return }
-            guard let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode == 200 else { return }
+            guard let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode == 200 else {return}
+            print(httpStatus.statusCode)
             do {
                 let bookList = try JSONDecoder().decode(BookList.self, from: data)
                 if bookList.BookItems?.count != 0 {

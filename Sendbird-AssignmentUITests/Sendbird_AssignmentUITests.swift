@@ -39,4 +39,46 @@ class Sendbird_AssignmentUITests: XCTestCase {
             }
         }
     }
+    
+
+    func testMainList() {
+        
+        let app = XCUIApplication()
+        let searchTextField = app.textFields["Search"]
+        searchTextField.tap()
+        
+        let sKey = app/*@START_MENU_TOKEN@*/.keys["S"]/*[[".keyboards.keys[\"S\"]",".keys[\"S\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        sKey.tap()
+
+        
+        let wKey = app/*@START_MENU_TOKEN@*/.keys["w"]/*[[".keyboards.keys[\"w\"]",".keys[\"w\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        wKey.tap()
+  
+        
+        let iKey = app/*@START_MENU_TOKEN@*/.keys["i"]/*[[".keyboards.keys[\"i\"]",".keys[\"i\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        iKey.tap()
+
+        
+        let fKey = app/*@START_MENU_TOKEN@*/.keys["f"]/*[[".keyboards.keys[\"f\"]",".keys[\"f\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        fKey.tap()
+
+        
+        let tKey = app/*@START_MENU_TOKEN@*/.keys["t"]/*[[".keyboards.keys[\"t\"]",".keys[\"t\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        tKey.tap()
+
+        
+        let spaceKey = app/*@START_MENU_TOKEN@*/.keys["space"]/*[[".keyboards.keys[\"space\"]",".keys[\"space\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        spaceKey.tap()
+ 
+        let deleteKey = app/*@START_MENU_TOKEN@*/.keys["delete"]/*[[".keyboards.keys[\"delete\"]",".keys[\"delete\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        deleteKey.tap()
+
+        
+        let noDataTable = app.tables["No Data"]
+        let noDataStaticText = noDataTable.staticTexts["No Data"]
+        noDataStaticText.tap()
+        
+         
+        
+    }
 }
