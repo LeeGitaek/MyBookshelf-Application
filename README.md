@@ -1,4 +1,4 @@
 # MyBookshelf-Application
 
-###### Sendbird - Assignment
+###### Sendbird Assignment / 지원 취소 
 ###### MVC 아키텍처를 사용하여 개발하였음.
